@@ -1,26 +1,40 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { IsNotEmpty, IsString, IsOptional, IsBoolean } from 'class-validator';
 
 export type BookDocument = Book & Document;
 
 @Schema()
 export class Book {
   @Prop({ required: true })
-  public title: string;
+  @IsNotEmpty()
+  @IsString()
+  title: string;
 
   @Prop()
-  public description: string;
+  @IsOptional()
+  @IsString()
+  description: string;
 
   @Prop()
-  public authors: string;
+  @IsOptional()
+  @IsString()
+  authors: string;
 
   @Prop()
-  public favorite: string;
+  @IsOptional()
+  @IsBoolean()
+  favorite: string;
 
   @Prop()
-  public fileCover: string;
+  @IsOptional()
+  @IsString()
+  fileCover: string;
+
   @Prop()
-  public fileName: string;
+  @IsOptional()
+  @IsString()
+  fileName: string;
 }
 
 export const BookSchema = SchemaFactory.createForClass(Book);
