@@ -3,7 +3,7 @@ import { InjectConnection, InjectModel } from '@nestjs/mongoose';
 import { User, UserDocument } from './schemes/user.scheme';
 import { Connection, Model } from 'mongoose';
 import { CreateUserDto } from './interfaces/createUserDto';
-import { JwtPayload } from 'src/auth/interfaces/jwt-payload.interface';
+import { JwtPayload } from '../auth/interfaces/jwt-payload.interface';
 
 @Injectable()
 export class UsersService {

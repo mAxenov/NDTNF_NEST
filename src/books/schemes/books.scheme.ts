@@ -6,7 +6,7 @@ export type BookDocument = Book & Document;
 
 @Schema()
 export class Book {
-  @Prop({ required: true })
+  @Prop()
   @IsNotEmpty()
   @IsString()
   title: string;

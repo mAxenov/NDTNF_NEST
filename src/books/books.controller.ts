@@ -15,8 +15,8 @@ import { BooksService } from './books.service';
 import { CreateBookDto } from './interfaces/dto/createBookDto';
 import { BookDocument } from './schemes/books.scheme';
 import { IParamId } from './interfaces/param-id';
-import { ResponseInterceptor } from 'src/interceptor/ResponseInterceptor';
-import { JwtAuthGuard } from 'src/auth/jwt.auth.guard';
+import { JwtAuthGuard } from '..//auth/jwt.auth.guard';
+import { ResponseInterceptor } from '../interceptor/ResponseInterceptor';
 //import { ResponseInterceptor } from 'src/interceptor/ResponseInterceptor';
 
 @Controller('books')
@@ -38,11 +38,11 @@ export class BooksController {
 
   @Put(':id')
   @UsePipes(new ValidationPipe())
-  update(
+  async update(
     @Param() { id }: IParamId,
     @Body() body: CreateBookDto,
   ): Promise<BookDocument> {
-    return this.booksService.update(id, body);
+    return await this.booksService.update(id, body);
   }
 
   @Delete(':id')

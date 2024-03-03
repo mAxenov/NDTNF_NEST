@@ -7,8 +7,8 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { CreateUserDto } from 'src/user/interfaces/createUserDto';
-import { ResponseInterceptor } from 'src/interceptor/ResponseInterceptor';
+import { CreateUserDto } from '../user/interfaces/createUserDto';
+import { ResponseInterceptor } from '../interceptor/ResponseInterceptor';
 
 @Controller('api/users')
 @UseInterceptors(ResponseInterceptor)
